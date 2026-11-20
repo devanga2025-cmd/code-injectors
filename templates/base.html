@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}VIBESHIELD — Secure Your Code. Build Without Fear.{% endblock %}</title>
+  <meta name="description" content="VIBESHIELD protects AI-generated and vibe-coded applications by identifying hidden vulnerabilities, exposed secrets, and security risks before deployment.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon: Original VIBESHIELD Logo -->
+  <link rel="icon" type="image/png" href="/assent/logo.png">
+
+  <!-- Unified Cybersecurity SaaS Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=4">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- 1. HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="navbar-inner">
+      <!-- Left: Original VIBESHIELD Logo Image -->
+      <a href="{% url 'home' %}" class="brand-link" aria-label="VIBESHIELD Home">
+        <img src="/assent/logo.png" alt="VIBESHIELD Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Right: Action CTA Buttons (About beside Book Demo and Try for Free) -->
+      <div class="nav-actions">
+        <a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" id="navAboutLink">About</a>
+        <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="btn btn-outline" id="headerBookDemoBtn">Book Demo</a>
+        <a href="{% url 'signup' %}" class="btn btn-primary" id="headerTryFreeBtn">Try for Free</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Responsive Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="{% url 'about' %}" class="nav-link">About</a>
+      <a href="{% url 'scan' %}" class="nav-link">Code Scanner</a>
+      <div class="mobile-drawer-actions">
+        <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="btn btn-outline">Book Demo</a>
+        <a href="{% url 'signup' %}" class="btn btn-primary">Try for Free</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- UNIFIED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <img src="/assent/logo.png" alt="VIBESHIELD Logo" class="footer-brand-logo">
+          <p class="footer-tagline">
+            Next-generation code security engine purpose-built for vibe-coded applications and autonomous AI agents.
+          </p>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-col-title">Platform</span>
+          <a href="{% url 'scan' %}" class="footer-link">AST Code Scanner</a>
+          <a href="{% url 'signup' %}" class="footer-link">Try for Free</a>
+          <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="footer-link">Book a Demo</a>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-col-title">Company & Legal</span>
+          <a href="{% url 'about' %}" class="footer-link">About VIBESHIELD</a>
+          <a href="{% url 'terms' %}" class="footer-link">Terms of Service</a>
+          <a href="{% url 'privacy' %}" class="footer-link">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 VIBESHIELD Inc. All rights reserved. Secure your code. Build without fear.</p>
+        <div class="footer-status-pill">
+          <span class="status-indicator-dot"></span>
+          <span>Engine Status: Operational (1.2ms latency)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOK A DEMO MODAL -->
+  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeDemoModal" aria-label="Close Modal">&times;</button>
+      <h2 class="modal-title" id="modalTitle">Schedule an Enterprise Demo</h2>
+      <p class="modal-desc">See how VIBESHIELD protects AI-generated and vibe-coded applications across your entire engineering workflow.</p>
+      
+      <form id="demoModalForm" method="POST" action="{% url 'capture_lead' %}">
+        {% csrf_token %}
+        <div class="modal-form-group">
+          <label class="modal-label" for="modalEmailInput">Work Email</label>
+          <input type="email" name="email" id="modalEmailInput" class="modal-input" placeholder="you@company.com" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="modalTeamSize">Engineering Team Size</label>
+          <select id="modalTeamSize" name="team_size" class="modal-select">
+            <option value="1-10">1 - 10 developers</option>
+            <option value="11-50" selected>11 - 50 developers</option>
+            <option value="51-200">51 - 200 developers</option>
+            <option value="200+">200+ developers</option>
+          </select>
+        </div>
+        <div id="modalFeedback" class="form-feedback hidden"></div>
+        <button type="submit" class="btn btn-primary modal-submit-btn" id="modalSubmitBtn">
+          Request Guided Walkthrough →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Interaction Scripts -->
+  <script>
+    // Mobile Drawer Toggle
+    const toggle = document.getElementById('mobileToggle');
+    const drawer = document.getElementById('mobileDrawer');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        const isOpen = drawer.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Modal Control
+    function openDemoModal(e) {
+      if (e) e.preventDefault();
+      const modal = document.getElementById('demoModal');
+      if (modal) {
+        modal.classList.add('active');
+        const emailInput = document.getElementById('modalEmailInput');
+        if (emailInput) setTimeout(() => emailInput.focus(), 100);
+      }
+    }
+
+    function closeDemoModal() {
+      const modal = document.getElementById('demoModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    const closeBtn = document.getElementById('closeDemoModal');
+    if (closeBtn) closeBtn.addEventListener('click', closeDemoModal);
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('demoModal');
+      if (e.target === modal) closeDemoModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDemoModal();
+    });
+
+    // AJAX Modal Lead Form
+    const modalForm = document.getElementById('demoModalForm');
+    if (modalForm) {
+      modalForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = document.getElementById('modalEmailInput');
+        const feedback = document.getElementById('modalFeedback');
+        const submitBtn = document.getElementById('modalSubmitBtn');
+        const email = emailInput.value.trim();
+
+        if (!email) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        try {
+          const resp = await fetch(modalForm.action, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: new URLSearchParams({ email })
+          });
+
+          const data = await resp.json();
+          feedback.classList.remove('hidden');
+
+          if (resp.ok && data.status === 'success') {
+            feedback.className = 'form-feedback success';
+            feedback.innerHTML = '✓ ' + data.message;
+            emailInput.value = '';
+            setTimeout(() => closeDemoModal(), 2800);
+          } else {
+            feedback.className = 'form-feedback error';
+            feedback.textContent = data.message || 'Please check your email address and try again.';
+          }
+        } catch (err) {
+          feedback.className = 'form-feedback error';
+          feedback.textContent = 'Network error. Please try again.';
+          feedback.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Guided Walkthrough →';
+        }
+      });
+    }
+
+    // Header Shadow on Scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.site-header');
+      if (header) {
+        if (window.scrollY > 12) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+  </script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book a Demo — VIBESHIELD{% endblock %}
+
+{% block content %}
+<section class="subpage-container" style="max-width: 720px;">
+  <div class="page-title-box" style="margin-bottom: 36px;">
+    <h1 class="page-title">Experience VIBESHIELD in Action</h1>
+    <p class="page-subtitle">
+      Schedule a personalized 30-minute technical walkthrough with our application security engineers.
+    </p>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 40px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);">
+    {% if success_email %}
+      <div style="text-align: center; padding: 24px 0;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--primary-tint); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px;">✓</div>
+        <h2 style="font-size: 1.5rem; color: var(--heading-dark); margin-bottom: 12px;">Demo Request Received!</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+          Thank you! We've registered your interest for <strong>{{ success_email }}</strong>. One of our lead security engineers will reach out within 2 hours to confirm your time slot.
+        </p>
+        <a href="{% url 'home' %}" class="btn btn-primary" style="margin-top: 28px;">Back to Home</a>
+      </div>
+    {% else %}
+      <form method="POST" action="{% url 'book_demo' %}">
+        {% csrf_token %}
+        <div class="modal-form-group">
+          <label class="modal-label" for="bdName">Full Name</label>
+          <input type="text" name="name" id="bdName" class="modal-input" placeholder="Alex Morgan" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="bdEmail">Work Email</label>
+          <input type="email" name="email" id="bdEmail" class="modal-input" placeholder="alex@company.com" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="bdCompany">Company / Project Name</label>
+          <input type="text" name="company" id="bdCompany" class="modal-input" placeholder="Acme Inc." required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="bdStack">Primary AI Tools Used</label>
+          <select id="bdStack" name="stack" class="modal-select">
+            <option value="cursor">Cursor / VS Code Copilot</option>
+            <option value="claude">Claude Code / Claude 3.5 Sonnet</option>
+            <option value="lovable">Lovable / Bolt / v0</option>
+            <option value="custom_agents">Custom LLM Agent Pipelines</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; margin-top: 12px;">
+          Confirm Booking Request
+        </button>
+      </form>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

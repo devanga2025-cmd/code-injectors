@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1890, initial-scale=1.0">
+  <title>Start your security journey — VIBESHIELD</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assent/logo.png">
+
+  <!-- Desktop Authentication Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}?v=3">
+</head>
+<body>
+
+  <!-- TWO-PANEL SPLIT DESKTOP LAYOUT (45% LEFT, 55% RIGHT) -->
+  <div class="auth-split-wrapper">
+
+    <!-- 1. LEFT PANEL – 45% WIDTH (Dark Charcoal #172320 / #222B29) -->
+    <section class="auth-left-panel" aria-label="VIBESHIELD Platform Overview">
+      <div class="auth-left-header">
+        <!-- VIBESHIELD Original Logo from project assent folder -->
+        <div class="auth-logo-wrap">
+          <a href="{% url 'home' %}" title="Back to VIBESHIELD Home">
+            <img src="/assent/logo.png?v=2" alt="VIBESHIELD Logo" class="auth-brand-logo">
+          </a>
+        </div>
+
+        <!-- 3. Three Interactive Category Tabs -->
+        <div class="auth-tabs-group" role="tablist" aria-label="Product Categories">
+          <button type="button" class="auth-tab-pill active" data-tab="guardian" role="tab" aria-selected="true" id="tabGuardian">
+            GUARDIAN
+          </button>
+          <button type="button" class="auth-tab-pill" data-tab="supply-chain" role="tab" aria-selected="false" id="tabSupplyChain">
+            SUPPLY CHAIN
+          </button>
+          <button type="button" class="auth-tab-pill" data-tab="code" role="tab" aria-selected="false" id="tabCode">
+            CODE
+          </button>
+        </div>
+
+        <!-- Dynamic Category Heading & Description -->
+        <div class="auth-text-content">
+          <h2 class="auth-category-heading" id="categoryHeading">
+            Protect your code before threats find it.
+          </h2>
+          <p class="auth-category-desc" id="categoryDesc">
+            Identify hidden security vulnerabilities and protect your applications from potential attacks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Large Rounded Mint-Colored Illustration Container (#DCEFE9) - Perfectly Constrained -->
+      <div class="auth-illustration-container">
+        <img 
+          src="{% static 'images/guardian_illustration.jpg' %}" 
+          alt="VIBESHIELD Guardian Security Illustration" 
+          class="auth-illustration-img" 
+          id="categoryIllustration"
+        >
+      </div>
+    </section>
+
+    <!-- 2. RIGHT PANEL – 55% WIDTH (Very Light Mint-Grey #EAF1F0) -->
+    <section class="auth-right-panel" aria-label="Sign in to VIBESHIELD">
+      <!-- Top Spacer to maintain optical balance with the left logo -->
+      <div class="auth-right-spacer" aria-hidden="true"></div>
+      
+      <!-- Center Aligned Content Container -->
+      <div class="auth-form-center">
+        <!-- Error Message Feedback if OAuth state or auth failed -->
+        {% if error_message %}
+          <div class="auth-alert-error" role="alert">
+            <svg viewBox="0 0 20 20" fill="currentColor" class="alert-icon">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <span>{{ error_message }}</span>
+          </div>
+        {% endif %}
+
+        <!-- Main Heading: Exact requirement from specification -->
+        <h1 class="auth-main-heading">
+          <span>Start your security journey</span>
+          <span>with VIBESHIELD</span>
+        </h1>
+
+        <!-- Social Authentication Buttons (ONLY GitHub OAuth) -->
+        <div class="auth-buttons-stack">
+          <!-- Button: Continue with GitHub -->
+          <a href="{% url 'oauth_github' %}" class="auth-btn-pill auth-btn-github" id="authGitHubBtn">
+            <svg class="auth-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>Continue with GitHub</span>
+          </a>
+        </div>
+
+        <!-- 6. Existing Account Section -->
+        <div class="auth-existing-account">
+          {% if mode == 'login' %}
+            <span>Don't have an account?</span>
+            <a href="{% url 'signup' %}" class="auth-login-link">Sign up.</a>
+          {% else %}
+            <span>Already have an account?</span>
+            <a href="{% url 'login' %}" class="auth-login-link">Log in.</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- 7. Footer Section -->
+      <footer class="auth-footer">
+        By signing in you accept our 
+        <a href="{% url 'terms' %}" class="auth-legal-link">Terms of Service</a> and 
+        <a href="{% url 'privacy' %}" class="auth-legal-link">Privacy Policy</a>.
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- Interactive Category Tabs Script -->
+  <script src="{% static 'js/auth.js' %}?v=2"></script>
+</body>
+</html>

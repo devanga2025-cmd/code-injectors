@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}VIBESHIELD — Secure Your Code. Build Without Fear.{% endblock %}
+
+{% block content %}
+<!-- 1. HERO SECTION -->
+<section class="hero-section">
+  <div class="hero-container">
+
+    <!-- Security Category Eyebrow Badge -->
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text">Next-Gen AI & Vibe-Coding Security Engine</span>
+    </div>
+
+    <!-- Main Heading (Exact copy from Part 2) -->
+    <h1 class="hero-heading">
+      <span class="hero-heading-line1">Secure Your Code.</span>
+      <span class="hero-heading-line2">Build Without Fear.</span>
+    </h1>
+
+    <!-- Description (Exact copy from Part 2) -->
+    <p class="hero-description">
+      VIBESHIELD protects AI-generated and vibe-coded applications by identifying hidden vulnerabilities, exposed secrets, and security risks before deployment.
+    </p>
+
+    <!-- CTA Buttons (Exact buttons from Part 2) -->
+    <div class="hero-actions-group">
+      <a href="{% url 'scan' %}" class="btn btn-primary btn-hero-primary" id="heroStartScanBtn">
+        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <span>Start Free Security Scan</span>
+      </a>
+
+      <a href="#platform-overview" class="btn btn-outline btn-hero-secondary" id="heroExploreBtn">
+        <span>Explore Platform</span>
+        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Interactive Developer Stack Bar -->
+    <div class="hero-badges-wrapper">
+      <div class="trust-tagline">Engineered for the Modern AI Developer Stack</div>
+      <div class="integration-pills">
+        <span class="integration-pill"><span class="dot"></span>Cursor IDE</span>
+        <span class="integration-pill"><span class="dot"></span>GitHub Copilot</span>
+        <span class="integration-pill"><span class="dot"></span>Claude Code</span>
+        <span class="integration-pill"><span class="dot"></span>Lovable</span>
+        <span class="integration-pill"><span class="dot"></span>v0 by Vercel</span>
+        <span class="integration-pill"><span class="dot"></span>Devin AI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2. LIVE INTERACTIVE ENGINE PREVIEW -->
+<section class="scanner-preview-section">
+  <div class="section-container">
+    <div class="preview-card-wrap">
+      <!-- Terminal Header -->
+      <div class="terminal-bar">
+        <div class="terminal-dots">
+          <span class="t-dot dot-red"></span>
+          <span class="t-dot dot-yellow"></span>
+          <span class="t-dot dot-green"></span>
+        </div>
+        <div class="terminal-title">vibeshield-ast-engine — live security inspection</div>
+        <div class="terminal-meta">1.4ms runtime</div>
+      </div>
+
+      <!-- Terminal Body -->
+      <div class="terminal-grid">
+        <!-- Left: Code Snippet -->
+        <div class="terminal-code-col">
+          <div class="code-col-header">
+            <span>FastAPI Route (Vibe-Coded via AI Helper)</span>
+            <span class="badge-lang">Python 3.13</span>
+          </div>
+          <pre class="code-block"><code><span class="c-kw">@app</span>.post(<span class="c-str">"/api/v1/user/search"</span>)
+<span class="c-kw">async def</span> <span class="c-fn">search_user</span>(query: <span class="c-type">str</span>, db: <span class="c-type">Session</span> = Depends(get_db)):
+    <span class="c-comment"># Raw concatenation created by AI coding assistant</span>
+    sql = <span class="c-str">f"SELECT * FROM users WHERE username = '{query}'"</span>
+    result = db.execute(text(sql))
+    <span class="c-kw">return</span> result.fetchall()</code></pre>
+        </div>
+
+        <!-- Right: VIBESHIELD Findings -->
+        <div class="terminal-findings-col">
+          <div class="finding-card high">
+            <div class="finding-badge badge-high">CRITICAL AST DETECTION</div>
+            <div class="finding-rule">vibeshield.sqli.raw-fstring-query</div>
+            <div class="finding-msg">Unescaped SQL query generated from user input via AI string interpolation.</div>
+            <div class="finding-fix">
+              <strong>Automated Fix:</strong> Parametrize with <code>text("... WHERE username = :q")</code>
+            </div>
+          </div>
+
+          <div class="finding-card safe">
+            <div class="finding-badge badge-safe">AI GUARDRAIL PASS</div>
+            <div class="finding-rule">vibeshield.secrets.zero-leaks</div>
+            <div class="finding-msg">Zero exposed OpenAI or GitHub private keys detected in scope.</div>
+          </div>
+
+          <a href="{% url 'scan' %}" class="terminal-cta-link">
+            <span>Launch Interactive AST Scanner</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PLATFORM OVERVIEW (GUARDIAN, SUPPLY CHAIN, CODE) -->
+<section class="platform-section" id="platform-overview">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">The VIBESHIELD Security Triad</h2>
+      <p class="section-subtitle">
+        Built from the ground up to secure modern software generated by autonomous AI agents and rapid vibe-coding workflows.
+      </p>
+    </div>
+
+    <div class="platform-cards-grid">
+      <!-- Card 1: Guardian -->
+      <div class="platform-card">
+        <div class="card-img-wrap">
+          <img src="{% static 'images/guardian_illustration.jpg' %}" alt="VIBESHIELD Guardian Engine" class="platform-img">
+        </div>
+        <div class="card-body">
+          <div class="card-pill">GUARDIAN</div>
+          <h3 class="card-title">Real-Time Application Shield</h3>
+          <p class="card-desc">
+            Detect hidden security vulnerabilities before they hit production. Continuously intercepts AST execution trees to enforce safe memory, SQL, and prompt handling.
+          </p>
+          <ul class="card-feature-list">
+            <li>✓ Prompt injection guardrails for AI tool callers</li>
+            <li>✓ Unsanitized dynamic execution prevention</li>
+            <li>✓ Zero-day vulnerability mitigation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: Supply Chain -->
+      <div class="platform-card">
+        <div class="card-img-wrap">
+          <img src="{% static 'images/supply_chain_illustration.jpg' %}" alt="VIBESHIELD Supply Chain Engine" class="platform-img">
+        </div>
+        <div class="card-body">
+          <div class="card-pill">SUPPLY CHAIN</div>
+          <h3 class="card-title">Dependency & Agent Risk Scanner</h3>
+          <p class="card-desc">
+            Inspect third-party packages, Python wheels, npm packages, and external libraries hallucinated by AI tools to eradicate supply chain tampering.
+          </p>
+          <ul class="card-feature-list">
+            <li>✓ Hallucinated package & typosquatting detection</li>
+            <li>✓ Cryptographic lockfile validation</li>
+            <li>✓ Continuous CVE database sync</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3: Code -->
+      <div class="platform-card">
+        <div class="card-img-wrap">
+          <img src="{% static 'images/code_illustration.jpg' %}" alt="VIBESHIELD Code Security Engine" class="platform-img">
+        </div>
+        <div class="card-body">
+          <div class="card-pill">CODE VERIFICATION</div>
+          <h3 class="card-title">AST Static Analysis for Builders</h3>
+          <p class="card-desc">
+            Instantly audit codebases for hardcoded API keys, misconfigured cloud credentials, and broken authentication gates before merging.
+          </p>
+          <ul class="card-feature-list">
+            <li>✓ Secrets & entropy leak detection</li>
+            <li>✓ RBAC & auth decorator enforcement</li>
+            <li>✓ Sub-2ms localized analysis latency</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. METRICS & TRUST SECTION -->
+<section class="metrics-section">
+  <div class="section-container">
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <div class="metric-num">1.4ms</div>
+        <div class="metric-label">Average AST scan latency per commit</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">100%</div>
+        <div class="metric-label">OWASP Top 10 for LLM compliance coverage</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">Zero</div>
+        <div class="metric-label">Code storage or external data telemetry</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">1-Click</div>
+        <div class="metric-label">GitHub OAuth setup with zero config</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BOTTOM CTA BANNER -->
+<section class="cta-banner-section">
+  <div class="section-container">
+    <div class="cta-banner-card">
+      <h2 class="cta-banner-title">Ready to secure your AI-generated codebase?</h2>
+      <p class="cta-banner-desc">
+        Start scanning vibe-coded applications in seconds with VIBESHIELD's developer-first security engine.
+      </p>
+      <div class="cta-banner-actions">
+        <a href="{% url 'signup' %}" class="btn btn-primary" id="bannerTryFreeBtn">Try for Free</a>
+        <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="btn btn-outline-white" id="bannerBookDemoBtn">Schedule a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Terms of Service — VIBESHIELD{% endblock %}
+
+{% block content %}
+<section class="subpage-container" style="max-width: 800px; padding: 60px 24px 80px;">
+  <h1 style="font-size: 2.25rem; font-weight: 800; color: #304B45; margin-bottom: 24px;">Terms of Service</h1>
+  <p style="color: #6C7D8E; line-height: 1.7; margin-bottom: 20px;">Last updated: November 2026</p>
+  <div style="color: #263B52; line-height: 1.7; font-size: 1rem;">
+    <h3 style="margin: 24px 0 12px; color: #304B45;">1. Acceptance of Terms</h3>
+    <p>By accessing or using VIBESHIELD's application security scanner, agents, and cloud guardrails, you agree to be bound by these Terms of Service.</p>
+
+    <h3 style="margin: 24px 0 12px; color: #304B45;">2. Permitted Use</h3>
+    <p>VIBESHIELD provides code security analysis for repositories, software dependencies, and AI-assisted workflows. You must possess authorized administrative access to any codebase scanned using the platform.</p>
+
+    <h3 style="margin: 24px 0 12px; color: #304B45;">3. Security and Data Confidentiality</h3>
+    <p>We do not use customer code or repository contents to train public AI models. All AST scans are processed ephemerally in zero-retention memory enclaves.</p>
+  </div>
+  <div style="margin-top: 40px;">
+    <a href="{% url 'signup' %}" class="btn btn-primary">Back to Sign Up</a>
+  </div>
+</section>
+{% endblock %}

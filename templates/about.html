@@ -1,69 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About VIBESHIELD — Securing AI-Generated Code{% endblock %}
+{% block title %}About CodeShield AI — Cloud-Native Code Security{% endblock %}
 
 {% block content %}
-<section class="subpage-container" style="max-width: 960px; margin: 0 auto; padding: 64px 24px 80px;">
-  <div style="text-align: center; max-width: 740px; margin: 0 auto 48px;">
-    <div class="hero-badge" style="margin-bottom: 16px;">
+<section class="subpage-container" style="max-width: 900px; margin: 0 auto; padding: 40px 20px 60px;">
+  <div style="text-align: center; max-width: 680px; margin: 0 auto 32px;">
+    <div class="hero-badge" style="margin-bottom: 10px;">
       <span class="badge-dot"></span>
-      <span class="badge-text">Mission & Vision</span>
+      <span class="badge-text">Mission & Architecture</span>
     </div>
-    <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--heading-dark); letter-spacing: -0.03em; margin-bottom: 16px;">
-      Securing the Future of AI-Driven Development
+    <h1 style="font-size: 1.5rem; font-weight: 600; color: var(--heading-dark); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.3;">
+      Continuous Code Security with Established Tools & AI Remediation
     </h1>
-    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
-      VIBESHIELD was founded to solve the most critical bottleneck in modern software engineering: protecting applications built at the velocity of generative AI and vibe coding.
+    <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.55; max-width: 620px; margin: 0 auto;">
+      CodeShield AI automatically scans GitHub repositories using industry-standard security tools to detect vulnerabilities, exposed secrets, insecure code patterns, and dependency risks—synthesizing AI-powered explanations and verified fix diffs.
     </p>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 56px;">
-    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-      <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 32px;">
+    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 18px; box-shadow: var(--shadow-card);">
+      <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         </svg>
       </div>
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--heading-dark); margin-bottom: 10px;">Vibe-Coding Protection</h3>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
-        Autonomous AI agents generate code faster than human security teams can review. VIBESHIELD inspects syntax trees instantaneously inside IDEs and CI/CD pipelines before insecure code touches production.
+      <h3 style="font-size: 0.9375rem; font-weight: 600; color: var(--heading-dark); margin-bottom: 6px;">Multi-Engine AST Detection</h3>
+      <p style="color: var(--text-muted); font-size: 0.8125rem; line-height: 1.45;">
+        Deterministic code analysis powered by Bandit (Python AST security), Semgrep (insecure pattern detection), and Gitleaks (secret identification).
       </p>
     </div>
 
-    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-      <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 18px; box-shadow: var(--shadow-card);">
+      <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M12 6v6l4 2"></path>
         </svg>
       </div>
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--heading-dark); margin-bottom: 10px;">Sub-Millisecond Engine</h3>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
-        Engineered with zero-overhead static analysis rules tailored for generative patterns, LLM output sanitization, and autonomous agent tool-calling safeguards.
+      <h3 style="font-size: 0.9375rem; font-weight: 600; color: var(--heading-dark); margin-bottom: 6px;">Supply Chain & OSV-Scanner</h3>
+      <p style="color: var(--text-muted); font-size: 0.8125rem; line-height: 1.45;">
+        Continuous auditing of project dependencies against Google Open Source Vulnerabilities (OSV) and GitHub Advisory (GHSA) databases.
       </p>
     </div>
 
-    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-      <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+    <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 18px; box-shadow: var(--shadow-card);">
+      <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--primary-light); color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       </div>
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--heading-dark); margin-bottom: 10px;">Contextual Remediation</h3>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
-        Don't just find vulnerabilities—fix them instantly. VIBESHIELD generates verified, context-aware remediation diffs that developers and agents can merge with a single click.
+      <h3 style="font-size: 0.9375rem; font-weight: 600; color: var(--heading-dark); margin-bottom: 6px;">Contextual AI Remediation</h3>
+      <p style="color: var(--text-muted); font-size: 0.8125rem; line-height: 1.45;">
+        We use AI/LLMs to understand findings, explain runtime risks, prioritize P0 vulnerabilities, and generate verified unified diff patches.
       </p>
     </div>
   </div>
 
-  <div style="text-align: center; padding: 48px; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card);">
-    <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--heading-dark); margin-bottom: 12px;">Ready to secure your development pipeline?</h3>
-    <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 24px;">Start scanning vibe-coded applications or request a technical architectural overview.</p>
-    <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-      <a href="{% url 'signup' %}" class="btn btn-primary" style="padding: 12px 28px;">Try for Free</a>
-      <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="btn btn-outline" style="padding: 12px 28px;">Book a Demo</a>
+  <div style="text-align: center; padding: 24px 20px; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); box-shadow: var(--shadow-card);">
+    <h3 style="font-size: 1.0625rem; font-weight: 600; color: var(--heading-dark); margin-bottom: 6px;">Ready to secure your repositories?</h3>
+    <p style="color: var(--text-muted); font-size: 0.8125rem; margin-bottom: 16px;">Connect your GitHub repository and run a live multi-engine security scan in seconds.</p>
+    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <a href="{% url 'signup' %}" class="btn btn-primary" style="padding: 7px 18px; font-size: 0.8125rem; height: 34px;">Try for Free</a>
+      <a href="{% url 'book_demo' %}" onclick="openDemoModal(event)" class="btn btn-outline" style="padding: 7px 18px; font-size: 0.8125rem; height: 34px;">Book a Demo</a>
     </div>
   </div>
 </section>

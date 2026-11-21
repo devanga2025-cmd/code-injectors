@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}VIBESHIELD — Secure Your Code. Build Without Fear.{% endblock %}</title>
-  <meta name="description" content="VIBESHIELD protects AI-generated and vibe-coded applications by identifying hidden vulnerabilities, exposed secrets, and security risks before deployment.">
+  <title>{% block title %}CodeShield AI — Secure Your Code. Build Without Fear.{% endblock %}</title>
+  <meta name="description" content="CodeShield AI automatically scans GitHub repositories using security tools to detect vulnerabilities, exposed secrets, insecure code and dependency risks.">
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Favicon: Original VIBESHIELD Logo -->
+  <!-- Favicon: Original Logo -->
   <link rel="icon" type="image/png" href="/assent/logo.png">
 
   <!-- Unified Cybersecurity SaaS Stylesheet -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=4">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=5">
   {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -24,9 +24,9 @@
   <!-- 1. HEADER / NAVBAR -->
   <header class="site-header">
     <div class="navbar-inner">
-      <!-- Left: Original VIBESHIELD Logo Image -->
-      <a href="{% url 'home' %}" class="brand-link" aria-label="VIBESHIELD Home">
-        <img src="/assent/logo.png" alt="VIBESHIELD Logo" class="brand-logo-img">
+      <!-- Left: Brand Logo Image -->
+      <a href="{% url 'home' %}" class="brand-link" aria-label="CodeShield AI Home">
+        <img src="/assent/logo.png" alt="CodeShield AI Logo" class="brand-logo-img">
       </a>
 
       <!-- Right: Action CTA Buttons (About beside Book Demo and Try for Free) -->
@@ -67,9 +67,9 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand-col">
-          <img src="/assent/logo.png" alt="VIBESHIELD Logo" class="footer-brand-logo">
+          <img src="/assent/logo.png" alt="CodeShield AI Logo" class="footer-brand-logo">
           <p class="footer-tagline">
-            Next-generation code security engine purpose-built for vibe-coded applications and autonomous AI agents.
+            Automated multi-engine security scanning for modern repositories with AI-powered remediation.
           </p>
         </div>
         <div class="footer-links-col">
@@ -80,16 +80,16 @@
         </div>
         <div class="footer-links-col">
           <span class="footer-col-title">Company & Legal</span>
-          <a href="{% url 'about' %}" class="footer-link">About VIBESHIELD</a>
+          <a href="{% url 'about' %}" class="footer-link">About CodeShield AI</a>
           <a href="{% url 'terms' %}" class="footer-link">Terms of Service</a>
           <a href="{% url 'privacy' %}" class="footer-link">Privacy Policy</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 VIBESHIELD Inc. All rights reserved. Secure your code. Build without fear.</p>
+        <p>&copy; 2026 CodeShield AI Inc. All rights reserved. Secure your code. Build without fear.</p>
         <div class="footer-status-pill">
           <span class="status-indicator-dot"></span>
-          <span>Engine Status: Operational (1.2ms latency)</span>
+          <span>Engine Status: Operational (Multi-Engine Active)</span>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
     <div class="modal-card">
       <button class="modal-close-btn" id="closeDemoModal" aria-label="Close Modal">&times;</button>
       <h2 class="modal-title" id="modalTitle">Schedule an Enterprise Demo</h2>
-      <p class="modal-desc">See how VIBESHIELD protects AI-generated and vibe-coded applications across your entire engineering workflow.</p>
+      <p class="modal-desc">See how CodeShield AI protects modern codebases and repositories across your entire development lifecycle.</p>
       
       <form id="demoModalForm" method="POST" action="{% url 'capture_lead' %}">
         {% csrf_token %}

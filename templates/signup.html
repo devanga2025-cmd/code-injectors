@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1890, initial-scale=1.0">
-  <title>Start your security journey — VIBESHIELD</title>
+  <title>Start your security journey — CodeShield AI</title>
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assent/logo.png">
@@ -23,12 +23,12 @@
   <div class="auth-split-wrapper">
 
     <!-- 1. LEFT PANEL – 45% WIDTH (Dark Charcoal #172320 / #222B29) -->
-    <section class="auth-left-panel" aria-label="VIBESHIELD Platform Overview">
+    <section class="auth-left-panel" aria-label="CodeShield AI Platform Overview">
       <div class="auth-left-header">
-        <!-- VIBESHIELD Original Logo from project assent folder -->
+        <!-- CodeShield Logo from project assent folder -->
         <div class="auth-logo-wrap">
-          <a href="{% url 'home' %}" title="Back to VIBESHIELD Home">
-            <img src="/assent/logo.png?v=2" alt="VIBESHIELD Logo" class="auth-brand-logo">
+          <a href="{% url 'home' %}" title="Back to CodeShield AI Home">
+            <img src="/assent/logo.png?v=2" alt="CodeShield AI Logo" class="auth-brand-logo">
           </a>
         </div>
 
@@ -60,7 +60,7 @@
       <div class="auth-illustration-container">
         <img 
           src="{% static 'images/guardian_illustration.jpg' %}" 
-          alt="VIBESHIELD Guardian Security Illustration" 
+          alt="CodeShield AI Guardian Security Illustration" 
           class="auth-illustration-img" 
           id="categoryIllustration"
         >
@@ -68,12 +68,22 @@
     </section>
 
     <!-- 2. RIGHT PANEL – 55% WIDTH (Very Light Mint-Grey #EAF1F0) -->
-    <section class="auth-right-panel" aria-label="Sign in to VIBESHIELD">
+    <section class="auth-right-panel" aria-label="Sign in to CodeShield AI">
       <!-- Top Spacer to maintain optical balance with the left logo -->
       <div class="auth-right-spacer" aria-hidden="true"></div>
       
       <!-- Center Aligned Content Container -->
       <div class="auth-form-center">
+        <!-- Info Feedback if logged out or state update -->
+        {% if info_message %}
+          <div class="auth-alert-info" role="status" style="display: flex; align-items: center; gap: 8px; background: #E8FAF4; color: #0E6B56; border: 1px solid #A7F3D0; padding: 10px 14px; border-radius: 6px; font-size: 0.82rem; margin-bottom: 16px; line-height: 1.45;">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="flex-shrink: 0;">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>{{ info_message }}</span>
+          </div>
+        {% endif %}
+
         <!-- Error Message Feedback if OAuth state or auth failed -->
         {% if error_message %}
           <div class="auth-alert-error" role="alert">
@@ -87,7 +97,7 @@
         <!-- Main Heading: Exact requirement from specification -->
         <h1 class="auth-main-heading">
           <span>Start your security journey</span>
-          <span>with VIBESHIELD</span>
+          <span>with CodeShield AI</span>
         </h1>
 
         <!-- Social Authentication Buttons (ONLY GitHub OAuth) -->

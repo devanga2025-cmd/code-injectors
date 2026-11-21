@@ -1,5 +1,5 @@
 /**
- * VIBESHIELD Authentication / Signup Page Scripts
+ * CodeShield AI Authentication / Signup Page Scripts
  * Handles interactive tabs for GUARDIAN, SUPPLY CHAIN, and CODE
  */
 
@@ -9,19 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
       heading: 'Protect your code before threats find it.',
       desc: 'Identify hidden security vulnerabilities and protect your applications from potential attacks.',
       image: '/static/images/guardian_illustration.jpg',
-      alt: 'VIBESHIELD Guardian Security Illustration'
+      alt: 'CodeShield AI Guardian Security Illustration'
     },
     'supply-chain': {
       heading: 'Discover risks across your dependencies.',
       desc: 'Analyze third-party packages, dependencies, and external libraries to uncover hidden security risks.',
       image: '/static/images/supply_chain_illustration.jpg',
-      alt: 'VIBESHIELD Supply Chain Risk Analysis Illustration'
+      alt: 'CodeShield AI Supply Chain Risk Analysis Illustration'
     },
     'code': {
       heading: 'Find vulnerabilities before deployment.',
       desc: 'Scan AI-generated and vibe-coded applications to identify insecure code, exposed secrets, and potential security weaknesses.',
       image: '/static/images/code_illustration.jpg',
-      alt: 'VIBESHIELD Code Vulnerability Detection Illustration'
+      alt: 'CodeShield AI Code Vulnerability Detection Illustration'
     }
   };
 

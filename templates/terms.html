@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Terms of Service — VIBESHIELD{% endblock %}
+{% block title %}Terms of Service — CodeShield AI{% endblock %}
 
 {% block content %}
-<section class="subpage-container" style="max-width: 800px; padding: 60px 24px 80px;">
-  <h1 style="font-size: 2.25rem; font-weight: 800; color: #304B45; margin-bottom: 24px;">Terms of Service</h1>
-  <p style="color: #6C7D8E; line-height: 1.7; margin-bottom: 20px;">Last updated: November 2026</p>
-  <div style="color: #263B52; line-height: 1.7; font-size: 1rem;">
-    <h3 style="margin: 24px 0 12px; color: #304B45;">1. Acceptance of Terms</h3>
-    <p>By accessing or using VIBESHIELD's application security scanner, agents, and cloud guardrails, you agree to be bound by these Terms of Service.</p>
+<section class="subpage-container" style="max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;">
+  <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 36px 40px; box-shadow: var(--shadow-card);">
+    <h1 style="font-size: 1.75rem; font-weight: 600; color: var(--heading-dark); letter-spacing: -0.02em; margin-bottom: 8px;">
+      Terms of Service
+    </h1>
+    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 24px;">Last updated: November 2026</p>
+    
+    <div style="color: var(--text-body); line-height: 1.65; font-size: 0.9375rem;">
+      <h2 style="margin: 24px 0 8px; font-size: 1.1rem; font-weight: 600; color: var(--heading-dark);">1. Acceptance of Terms</h2>
+      <p style="margin-bottom: 16px;">By accessing or using CodeShield AI's application security scanner, agents, and cloud guardrails, you agree to be bound by these Terms of Service.</p>
 
-    <h3 style="margin: 24px 0 12px; color: #304B45;">2. Permitted Use</h3>
-    <p>VIBESHIELD provides code security analysis for repositories, software dependencies, and AI-assisted workflows. You must possess authorized administrative access to any codebase scanned using the platform.</p>
+      <h2 style="margin: 24px 0 8px; font-size: 1.1rem; font-weight: 600; color: var(--heading-dark);">2. Permitted Use</h2>
+      <p style="margin-bottom: 16px;">CodeShield AI provides code security analysis for repositories, software dependencies, and AI-assisted workflows. You must possess authorized administrative access to any codebase scanned using the platform.</p>
 
-    <h3 style="margin: 24px 0 12px; color: #304B45;">3. Security and Data Confidentiality</h3>
-    <p>We do not use customer code or repository contents to train public AI models. All AST scans are processed ephemerally in zero-retention memory enclaves.</p>
-  </div>
-  <div style="margin-top: 40px;">
-    <a href="{% url 'signup' %}" class="btn btn-primary">Back to Sign Up</a>
+      <h2 style="margin: 24px 0 8px; font-size: 1.1rem; font-weight: 600; color: var(--heading-dark);">3. Security and Data Confidentiality</h2>
+      <p style="margin-bottom: 16px;">We do not use customer code or repository contents to train public AI models. All AST scans are processed ephemerally in zero-retention memory enclaves.</p>
+    </div>
+
+    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+      <a href="{% url 'signup' %}" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.875rem;">Back to Sign Up</a>
+    </div>
   </div>
 </section>
 {% endblock %}

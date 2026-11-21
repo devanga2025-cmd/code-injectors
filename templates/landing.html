@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}VIBESHIELD — Secure Your Code. Build Without Fear.{% endblock %}
+{% block title %}CodeShield AI — Continuous Code Security. Build Without Fear.{% endblock %}
 
 {% block content %}
 <!-- 1. HERO SECTION -->
@@ -11,7 +11,7 @@
     <!-- Security Category Eyebrow Badge -->
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      <span class="badge-text">Next-Gen AI & Vibe-Coding Security Engine</span>
+      <span class="badge-text">Continuous Cloud-Native & Code Security Engine</span>
     </div>
 
     <!-- Main Heading (Exact copy from Part 2) -->
@@ -22,7 +22,7 @@
 
     <!-- Description (Exact copy from Part 2) -->
     <p class="hero-description">
-      VIBESHIELD protects AI-generated and vibe-coded applications by identifying hidden vulnerabilities, exposed secrets, and security risks before deployment.
+      CodeShield AI automatically scans GitHub repositories using established security tools to detect vulnerabilities, exposed secrets, insecure code patterns, and supply chain risks.
     </p>
 
     <!-- CTA Buttons (Exact buttons from Part 2) -->
@@ -45,14 +45,13 @@
 
     <!-- Interactive Developer Stack Bar -->
     <div class="hero-badges-wrapper">
-      <div class="trust-tagline">Engineered for the Modern AI Developer Stack</div>
+      <div class="trust-tagline">Engineered with Industry-Standard Security Scanners</div>
       <div class="integration-pills">
-        <span class="integration-pill"><span class="dot"></span>Cursor IDE</span>
-        <span class="integration-pill"><span class="dot"></span>GitHub Copilot</span>
-        <span class="integration-pill"><span class="dot"></span>Claude Code</span>
-        <span class="integration-pill"><span class="dot"></span>Lovable</span>
-        <span class="integration-pill"><span class="dot"></span>v0 by Vercel</span>
-        <span class="integration-pill"><span class="dot"></span>Devin AI</span>
+        <span class="integration-pill"><span class="dot"></span>Bandit (Python AST)</span>
+        <span class="integration-pill"><span class="dot"></span>Semgrep (Pattern Rules)</span>
+        <span class="integration-pill"><span class="dot"></span>Gitleaks (Secret Auditor)</span>
+        <span class="integration-pill"><span class="dot"></span>OSV-Scanner (Google CVE)</span>
+        <span class="integration-pill"><span class="dot"></span>AI Risk Remediation</span>
       </div>
     </div>
 
@@ -70,8 +69,8 @@
           <span class="t-dot dot-yellow"></span>
           <span class="t-dot dot-green"></span>
         </div>
-        <div class="terminal-title">vibeshield-ast-engine — live security inspection</div>
-        <div class="terminal-meta">1.4ms runtime</div>
+        <div class="terminal-title">codeshield-scanner-engine — live multi-engine inspection</div>
+        <div class="terminal-meta">Bandit • Semgrep • Gitleaks • OSV</div>
       </div>
 
       <!-- Terminal Body -->
@@ -79,36 +78,36 @@
         <!-- Left: Code Snippet -->
         <div class="terminal-code-col">
           <div class="code-col-header">
-            <span>FastAPI Route (Vibe-Coded via AI Helper)</span>
+            <span>FastAPI Route (Repository Code Inspection)</span>
             <span class="badge-lang">Python 3.13</span>
           </div>
           <pre class="code-block"><code><span class="c-kw">@app</span>.post(<span class="c-str">"/api/v1/user/search"</span>)
 <span class="c-kw">async def</span> <span class="c-fn">search_user</span>(query: <span class="c-type">str</span>, db: <span class="c-type">Session</span> = Depends(get_db)):
-    <span class="c-comment"># Raw concatenation created by AI coding assistant</span>
+    <span class="c-comment"># Raw query concatenation vulnerability</span>
     sql = <span class="c-str">f"SELECT * FROM users WHERE username = '{query}'"</span>
     result = db.execute(text(sql))
     <span class="c-kw">return</span> result.fetchall()</code></pre>
         </div>
 
-        <!-- Right: VIBESHIELD Findings -->
+        <!-- Right: CodeShield AI Findings -->
         <div class="terminal-findings-col">
           <div class="finding-card high">
-            <div class="finding-badge badge-high">CRITICAL AST DETECTION</div>
-            <div class="finding-rule">vibeshield.sqli.raw-fstring-query</div>
-            <div class="finding-msg">Unescaped SQL query generated from user input via AI string interpolation.</div>
+            <div class="finding-badge badge-high">CRITICAL AST DETECTION (Bandit)</div>
+            <div class="finding-rule">bandit.b608.hardcoded_sql_expressions</div>
+            <div class="finding-msg">Unescaped SQL query generated from user input via raw string interpolation.</div>
             <div class="finding-fix">
               <strong>Automated Fix:</strong> Parametrize with <code>text("... WHERE username = :q")</code>
             </div>
           </div>
 
           <div class="finding-card safe">
-            <div class="finding-badge badge-safe">AI GUARDRAIL PASS</div>
-            <div class="finding-rule">vibeshield.secrets.zero-leaks</div>
-            <div class="finding-msg">Zero exposed OpenAI or GitHub private keys detected in scope.</div>
+            <div class="finding-badge badge-safe">SECRET SCAN PASS (Gitleaks)</div>
+            <div class="finding-rule">gitleaks.rules.zero-leaks</div>
+            <div class="finding-msg">Zero exposed OpenAI, AWS, or GitHub private tokens detected.</div>
           </div>
 
           <a href="{% url 'scan' %}" class="terminal-cta-link">
-            <span>Launch Interactive AST Scanner</span>
+            <span>Launch Interactive Code Scanner</span>
             <span class="arrow">→</span>
           </a>
         </div>
@@ -117,32 +116,32 @@
   </div>
 </section>
 
-<!-- 3. PLATFORM OVERVIEW (GUARDIAN, SUPPLY CHAIN, CODE) -->
+<!-- 3. PLATFORM OVERVIEW (BANDIT, OSV, SEMGREP & GITLEAKS) -->
 <section class="platform-section" id="platform-overview">
   <div class="section-container">
     <div class="section-header">
-      <h2 class="section-title">The VIBESHIELD Security Triad</h2>
+      <h2 class="section-title">Established Security Tools + AI Remediation</h2>
       <p class="section-subtitle">
-        Built from the ground up to secure modern software generated by autonomous AI agents and rapid vibe-coding workflows.
+        Primary vulnerability detection uses established security tools. We use AI/LLMs to understand findings, explain risks, and suggest remediation.
       </p>
     </div>
 
     <div class="platform-cards-grid">
-      <!-- Card 1: Guardian -->
+      <!-- Card 1: Bandit -->
       <div class="platform-card">
         <div class="card-img-wrap">
-          <img src="{% static 'images/guardian_illustration.jpg' %}" alt="VIBESHIELD Guardian Engine" class="platform-img">
+          <img src="{% static 'images/guardian_illustration.jpg' %}" alt="Bandit Security Engine" class="platform-img">
         </div>
         <div class="card-body">
-          <div class="card-pill">GUARDIAN</div>
-          <h3 class="card-title">Real-Time Application Shield</h3>
+          <div class="card-pill">BANDIT & SEMGREP</div>
+          <h3 class="card-title">AST Static Analysis & Pattern Detection</h3>
           <p class="card-desc">
-            Detect hidden security vulnerabilities before they hit production. Continuously intercepts AST execution trees to enforce safe memory, SQL, and prompt handling.
+            Deterministic AST security powered by Bandit and Semgrep. Parses syntax trees to detect SQL injection, command execution, and insecure coding patterns.
           </p>
           <ul class="card-feature-list">
-            <li>✓ Prompt injection guardrails for AI tool callers</li>
-            <li>✓ Unsanitized dynamic execution prevention</li>
-            <li>✓ Zero-day vulnerability mitigation</li>
+            <li>✓ AST-level SQL injection & eval detection</li>
+            <li>✓ OWASP Top 10 security rule enforcement</li>
+            <li>✓ Contextual 1-click unified patch diffs</li>
           </ul>
         </div>
       </div>
@@ -150,37 +149,37 @@
       <!-- Card 2: Supply Chain -->
       <div class="platform-card">
         <div class="card-img-wrap">
-          <img src="{% static 'images/supply_chain_illustration.jpg' %}" alt="VIBESHIELD Supply Chain Engine" class="platform-img">
+          <img src="{% static 'images/supply_chain_illustration.jpg' %}" alt="OSV-Scanner Supply Chain Engine" class="platform-img">
         </div>
         <div class="card-body">
-          <div class="card-pill">SUPPLY CHAIN</div>
-          <h3 class="card-title">Dependency & Agent Risk Scanner</h3>
+          <div class="card-pill">OSV-SCANNER</div>
+          <h3 class="card-title">Dependency & Supply Chain Auditor</h3>
           <p class="card-desc">
-            Inspect third-party packages, Python wheels, npm packages, and external libraries hallucinated by AI tools to eradicate supply chain tampering.
+            Audits project lockfiles and dependencies against Google's Open Source Vulnerability (OSV) database and GitHub Advisory Database (GHSA).
           </p>
           <ul class="card-feature-list">
-            <li>✓ Hallucinated package & typosquatting detection</li>
+            <li>✓ Google OSV database synchronization</li>
             <li>✓ Cryptographic lockfile validation</li>
-            <li>✓ Continuous CVE database sync</li>
+            <li>✓ Automated upgrade package advisory</li>
           </ul>
         </div>
       </div>
 
-      <!-- Card 3: Code -->
+      <!-- Card 3: Gitleaks -->
       <div class="platform-card">
         <div class="card-img-wrap">
-          <img src="{% static 'images/code_illustration.jpg' %}" alt="VIBESHIELD Code Security Engine" class="platform-img">
+          <img src="{% static 'images/code_illustration.jpg' %}" alt="Gitleaks Secret Detection" class="platform-img">
         </div>
         <div class="card-body">
-          <div class="card-pill">CODE VERIFICATION</div>
-          <h3 class="card-title">AST Static Analysis for Builders</h3>
+          <div class="card-pill">GITLEAKS</div>
+          <h3 class="card-title">Secret & Token Leak Detection</h3>
           <p class="card-desc">
-            Instantly audit codebases for hardcoded API keys, misconfigured cloud credentials, and broken authentication gates before merging.
+            Audits repositories and commits using high-entropy regex patterns to prevent exposed API keys, private certificates, and credentials.
           </p>
           <ul class="card-feature-list">
-            <li>✓ Secrets & entropy leak detection</li>
-            <li>✓ RBAC & auth decorator enforcement</li>
-            <li>✓ Sub-2ms localized analysis latency</li>
+            <li>✓ AWS, GitHub PAT, and OpenAI token auditing</li>
+            <li>✓ High-entropy regex credential matching</li>
+            <li>✓ Pre-commit and pull-request protection</li>
           </ul>
         </div>
       </div>
@@ -193,20 +192,20 @@
   <div class="section-container">
     <div class="metrics-grid">
       <div class="metric-item">
-        <div class="metric-num">1.4ms</div>
-        <div class="metric-label">Average AST scan latency per commit</div>
+        <div class="metric-num">4 Engines</div>
+        <div class="metric-label">Bandit, Semgrep, Gitleaks & OSV-Scanner</div>
       </div>
       <div class="metric-item">
         <div class="metric-num">100%</div>
-        <div class="metric-label">OWASP Top 10 for LLM compliance coverage</div>
+        <div class="metric-label">OWASP Top 10 security rule compliance</div>
       </div>
       <div class="metric-item">
         <div class="metric-num">Zero</div>
-        <div class="metric-label">Code storage or external data telemetry</div>
+        <div class="metric-label">Code retention or external telemetry</div>
       </div>
       <div class="metric-item">
         <div class="metric-num">1-Click</div>
-        <div class="metric-label">GitHub OAuth setup with zero config</div>
+        <div class="metric-label">GitHub OAuth with automated scanning</div>
       </div>
     </div>
   </div>
@@ -216,9 +215,9 @@
 <section class="cta-banner-section">
   <div class="section-container">
     <div class="cta-banner-card">
-      <h2 class="cta-banner-title">Ready to secure your AI-generated codebase?</h2>
+      <h2 class="cta-banner-title">Ready to secure your codebase?</h2>
       <p class="cta-banner-desc">
-        Start scanning vibe-coded applications in seconds with VIBESHIELD's developer-first security engine.
+        Start scanning GitHub repositories in seconds with CodeShield AI's developer-first security platform.
       </p>
       <div class="cta-banner-actions">
         <a href="{% url 'signup' %}" class="btn btn-primary" id="bannerTryFreeBtn">Try for Free</a>

@@ -1,0 +1,59 @@
+rules:
+  - id: semgrep.owasp.ai-prompt-injection
+    patterns:
+      - pattern-either:
+          - pattern: |
+              $PROMPT = f"...{$INPUT}..."
+              ...
+              $MODEL.generate($PROMPT, ...)
+          - pattern: |
+              $PROMPT = f"...{$INPUT}..."
+              ...
+              $CLIENT.chat.completions.create(..., messages=[{"role": "user", "content": $PROMPT}, ...], ...)
+          - pattern: |
+              $PROMPT = "...".format(..., $INPUT, ...)
+              ...
+              $MODEL.predict($PROMPT, ...)
+    message: "Potential Prompt Injection Sink: User-supplied input is directly interpolated into LLM system or user instructions without boundary isolation or role enforcement."
+    severity: ERROR
+    languages: [python]
+
+  - id: semgrep.subprocess.shell-true
+    patterns:
+      - pattern-either:
+          - pattern: subprocess.Popen(..., shell=True, ...)
+          - pattern: subprocess.call(..., shell=True, ...)
+          - pattern: subprocess.run(..., shell=True, ...)
+          - pattern: os.system(...)
+    message: "Insecure Subprocess Execution: Spawning subprocesses with shell=True or os.system() permits arbitrary shell command execution if arguments include untrusted input."
+    severity: ERROR
+    languages: [python]
+
+  - id: semgrep.sqli.raw-formatting
+    patterns:
+      - pattern-either:
+          - pattern: $DB.execute(f"SELECT ... {$VAR} ...")
+          - pattern: $DB.execute("SELECT ... %s ..." % ($VAR))
+          - pattern: $CUR.execute(f"SELECT ... {$VAR} ...")
+          - pattern: $CUR.execute("SELECT ... " + $VAR)
+    message: "SQL Injection Vector: Raw SQL statement constructed through string concatenation or interpolation instead of parameterized query bindings."
+    severity: ERROR
+    languages: [python]
+
+  - id: semgrep.jwt.missing-algorithm
+    patterns:
+      - pattern: jwt.decode($TOKEN, $KEY, ...)
+      - pattern-not: jwt.decode($TOKEN, $KEY, algorithms=[...], ...)
+    message: "Insecure JWT Decoding: jwt.decode() called without explicit algorithms whitelist permits algorithm confusion attacks (e.g. none algorithm)."
+    severity: WARNING
+    languages: [python]
+
+  - id: semgrep.security.insecure-deserialization
+    patterns:
+      - pattern-either:
+          - pattern: pickle.loads(...)
+          - pattern: yaml.load($DATA, Loader=yaml.Loader)
+          - pattern: yaml.unsafe_load(...)
+    message: "Insecure Object Deserialization: Unpickling or unsafe YAML loading allows remote code execution when unmarshaling untrusted byte streams."
+    severity: ERROR
+    languages: [python]

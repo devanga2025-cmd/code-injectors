@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="text-align: center; padding: 24px 0;">
               <div style="width: 52px; height: 52px; border-radius: 50%; background: #E8FAF5; color: #20C9A3; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">✓</div>
               <h3 style="font-size: 1.3rem; color: #304B45; margin-bottom: 8px;">Demo Request Confirmed!</h3>
-              <p style="color: #6C7D8E; font-size: 0.95rem;">We have registered <strong>${emailVal}</strong>. A VIBESHIELD security specialist will send your calendar invitation shortly.</p>
+              <p style="color: #6C7D8E; font-size: 0.95rem;">We have registered <strong>${emailVal}</strong>. A CodeShield AI security specialist will send your calendar invitation shortly.</p>
               <button onclick="closeModal()" class="btn btn-primary" style="margin-top: 24px; width: 100%;">Close</button>
             </div>
           `;

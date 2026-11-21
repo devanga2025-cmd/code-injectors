@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class DemoRequest(models.Model):
     email = models.EmailField()
@@ -99,6 +100,7 @@ class SecurityScan(models.Model):
         return f"{self.scan_id} - {self.repository.name} ({self.status})"
 
 class SecurityFinding(models.Model):
+    finding_id = models.CharField(max_length=64, blank=True, null=True, db_index=True)
     scan = models.ForeignKey(SecurityScan, on_delete=models.CASCADE, related_name='findings')
     repository = models.ForeignKey(Repository, on_delete=models.CASCADE, related_name='findings')
     rule_id = models.CharField(max_length=150)
@@ -126,16 +128,32 @@ class SecurityFinding(models.Model):
         max_length=50,
         choices=[
             ('open', 'Open'),
-            ('in_review', 'Awaiting Review'),
-            ('in_progress', 'Fix In Progress'),
-            ('resolved', 'Resolved'),
+            ('in_progress', 'In Progress'),
+            ('fixed', 'Fixed'),
+            ('ignored', 'Ignored'),
+            ('accepted_risk', 'Accepted Risk'),
         ],
         default='open'
+    )
+    reachability = models.CharField(
+        max_length=30,
+        choices=[
+            ('reachable', 'Reachable'),
+            ('unreachable', 'Unreachable'),
+            ('unknown', 'Unknown'),
+        ],
+        default='unknown'
     )
     file_path = models.CharField(max_length=300)
     line_number = models.IntegerField(default=1)
     message = models.TextField()
     remediation = models.TextField()
+    code_snippet = models.TextField(blank=True, default='')
+    
+    first_detected_at = models.DateTimeField(default=timezone.now)
+    last_detected_at = models.DateTimeField(default=timezone.now)
+    fixed_at = models.DateTimeField(blank=True, null=True)
+    ignored_at = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -144,9 +162,15 @@ class SecurityFinding(models.Model):
     def __str__(self):
         return f"[{self.severity}] {self.rule_id} in {self.file_path}"
 
+    def save(self, *args, **kwargs):
+        if not self.finding_id:
+            self.finding_id = f"CS-{uuid.uuid4().hex[:10].upper()}"
+        super().save(*args, **kwargs)
+
 class FeedbackSubmission(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    feedback_type = models.CharField(max_length=50, default='general')
+    feedback_type = models.CharField(max_length=50, default='scanner')
+    scanner_component = models.CharField(max_length=100, blank=True, null=True)
     message = models.TextField()
     rating = models.IntegerField(default=5)
     created_at = models.DateTimeField(auto_now_add=True)
